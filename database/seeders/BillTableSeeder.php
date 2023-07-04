@@ -16,7 +16,7 @@ class BillTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i <= 10; $i++) {
+        for ($i = 0; $i <= 100; $i++) {
             Bill::create([
                 'number' => $faker->regexify('[A-Z]{5}[0-4]{3}'),
                 'paid' => $faker->boolean(),
