@@ -26,7 +26,7 @@ class BillController extends Controller
 
     public function index()
     {
-        // $bills = Bill::all();
+        $bills = Bill::all();
         return view('bills.index', compact('bills'));
     }
 

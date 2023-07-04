@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [BillController::class, 'index'])->name('home');
 Route::resource('bills', BillController::class);
