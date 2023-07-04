@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('number', 10);
             $table->year('year');
             $table->boolean('paid');
-            $table->timestamps();
         });
     }
 
