@@ -19,7 +19,12 @@ class BillController extends Controller
 
     // 
 
-    // Validations
+    private $validations = [
+        'id'           => 'required|string|min:2|max:10',
+        'number'        => 'required|string|min:5|max:10',
+        'year'          => 'required|year',
+        'paid'          => 'string',
+    ];
 
     //
 
@@ -30,6 +35,15 @@ class BillController extends Controller
         return view('bills.index', compact('bills'));
     }
 
+    // public function boolean($var_num)
+    // {
+    //     if ($var_num) {
+    //         return 'si';
+    //     } else {
+    //         return 'no';
+    //     }
+    // }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +51,7 @@ class BillController extends Controller
      */
     public function create()
     {
-        //
+        return view('bills.create');
     }
 
     /**
@@ -48,8 +62,19 @@ class BillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validations);
+
+        $data = $request->all();
+        $newBills = new Bill();
+        $newBills->id          = $data['id'];
+        $newBills->number       = $data['number'];
+        $newBills->year         = $data['year'];
+        $newBills->paid         = $data['paid'];
+        $newBills->save();
+
+        return redirect()->route('bills.show', ['bills' => $newBills->id]);
     }
+
 
     /**
      * Display the specified resource.
