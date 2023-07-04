@@ -60,8 +60,8 @@ class BillController extends Controller
     public function show($id)
     {
 
-        $bill = Bill::find('id');
-        dd('bill');
+        $bill = Bill::findOrFail($id);
+
 
         return view('bills.show', compact('bill'));
     }
