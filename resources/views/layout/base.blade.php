@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DC Comics</title>
+    <title>Laravel Invoices</title>
     @vite('resources/js/app.js')
 </head>
 
