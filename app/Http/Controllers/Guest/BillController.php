@@ -118,7 +118,7 @@ class BillController extends Controller
         $bill->paid       = $data['paid'];
         $bill->update();
 
-        return to_route('bills.show', ['bill' => $bill->id]);
+        return to_route('bills.show', compact('bill'));
     }
     
 

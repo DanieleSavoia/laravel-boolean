@@ -3,7 +3,7 @@
 @section('contents')
     <h1 class="TEXT-CENTER">Modifica la fattura</h1>
 
-    <form method="POST" action="{{ route('bills.update', ['bill' => $bill->id]) }}">
+    <form method="POST" action="{{ route('bills.update', ['bill' => $bill]) }}">
         @csrf
         @method('PUT')
 

@@ -20,7 +20,7 @@
                     <td class="text-center">{{ $bill->paid? 'si' : 'no' }}</td>
                     <td class="text-center">
                         <a class="btn btn-primary" href="{{ route('bills.show', ['bill' => $bill->id]) }}">View</a>
-                        <a class="btn btn-warning" href="{{ route('bills.edit', ['bill' => $bill->id]) }}">Edit</a>
+                        <a class="btn btn-warning" href="{{ route('bills.edit', ['bill' => $bill]) }}">Edit</a>
                         <a class="btn btn-success" href="{{ route('bills.create') }}">+</a>
                         <a class="btn btn-danger" href="">X</a>
                     </td>
