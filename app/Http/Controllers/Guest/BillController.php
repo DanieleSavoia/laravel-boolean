@@ -97,9 +97,9 @@ class BillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Bill $bills)
     {
-        //
+        return view('bills.edit', compact('bills'));  
     }
 
     /**
@@ -109,17 +109,19 @@ class BillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bill $bill)
     {
-        //
-    }
+        $request->validate($this->validations);
+        $data = $request->all();
+        $bill->number     = $data['number'];
+        $bill->year       = $data['year'];
+        $bill->paid       = $data['paid'];
+        $bill->update();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        return to_route('bills.show', ['bill' => $bill->id]);
+    }
+    
+
     public function destroy($id)
     {
         //
